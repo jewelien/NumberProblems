@@ -14,10 +14,45 @@
 
 @implementation AppDelegate
 
+static int multiple = 8;
+static int divisor = 6;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self iterateCount: 4];
+    
     return YES;
+}
+
+- (int)iterateCount:(int)integer {
+
+    int decrementedNumber = --integer;
+    if (integer == 0) {
+        NSLog(@"0 reached");
+    } else {
+        NSLog(@"Iterate %d", integer);
+        [self iterateCount: decrementedNumber];
+    }
+    
+    int multValue = [self multiplied: integer];
+    NSLog(@"Multiplied %d by %d to be %d.", integer, multiple, multValue);
+    
+    
+    //float multValF = (float)multValue;
+    float result = [self divided: multValue];
+    NSLog(@"Divided %d by %d to be %f", multValue, divisor, result);
+    
+    return 0;
+}
+
+- (int)multiplied:(int)integerTwo {
+    return integerTwo *= multiple;
+}
+
+- (float)divided:(float)integerThree {
+    return integerThree /= divisor;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

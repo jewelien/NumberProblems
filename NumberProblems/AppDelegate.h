@@ -10,8 +10,12 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property(readonly) float floatValue;
 @property (strong, nonatomic) UIWindow *window;
 
+- (int)iterateCount:(int)number;
+- (int)multiplied:(int)integer;
+- (float)divided:(float)integer;
 
 @end
 
